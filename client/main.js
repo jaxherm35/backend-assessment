@@ -41,3 +41,15 @@ const img = document.querySelector('#img');
 const getImg = () => {
     axios.put('http://localhost:4000/api/img')
 }
+imgBtn.addEventListener('click', getImg);
+
+
+const deleteImgBtn = document.getElementById('deleteImgBtn')
+
+const deleteImg = () => {
+    axios.delete('http://localhost:4000/api/img')
+}
+deleteImgBtn.addEventListener('click', deleteImg)
+
+
+

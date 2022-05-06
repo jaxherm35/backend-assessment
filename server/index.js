@@ -11,10 +11,12 @@ const { getCompliment } = require('./controller')
 const { getFortune } = require('./controller')
 const { getThought } = require('./controller')
 const { getImg } = require('./controller')
+const { deleteImg } = require('./controller')
 
 app.get("/api/compliment", getCompliment);
 app.get("/api/fortune", getFortune);
 app.get("/api/thought", getThought);
-app.post("/api/newPic", getImg);
+app.post("/api/img", getImg);
+app.delete("/api/delete", deleteImg)
 
 app.listen(4000, () => console.log("Server running on 4000"));

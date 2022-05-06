@@ -20,15 +20,6 @@ module.exports = {
     },
 
     
-    
-    
-    getImg: (req, res) => {
-        let {img} = req.body;
-        let image = {
-            img: img
-        }
-    },
-
     getThought: (req, res) => {
         const thought = ['If Cinderellas shoe fit perfectly, why did it fall off?', 'If you work at a Samsung store, are you a guardian of the galaxy?', 'If youre waiting for the waiter, arent you the waiter?'];
         let randomIndex = Math.floor(Math.random() * thought.length);
@@ -36,5 +27,20 @@ module.exports = {
 
         res.status(200).send(randomThought)
     },
+    
+
+    getImg: (req, res) => {
+        let {img} = req.body;
+        let image = {
+            img: img
+        }
+    },
+
+    deleteImg: (req, res) => {
+        let {img} = req.body;
+        let image = {
+            img: img
+        }
+    }
 
 }
