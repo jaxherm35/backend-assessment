@@ -33,23 +33,63 @@ const getThought = () => {
 };
 thoughtBtn.addEventListener('click', getThought);
 
+// const addThought = () => {
+//     axios.post('http://localhost:4000/api/thought')
+//     .then(res => {
+//         const data = res.data
+//         alert(data);
+//     });
+// }
 
+const addThoughtBtn = document.querySelector('#addThoughtBtn')
+const addThoughtInput = document.getElementById('addThoughtInput')
 
-const imgBtn = document.getElementById('imgBtn')
-const img = document.querySelector('#img');
-
-const getImg = () => {
-    axios.put('http://localhost:4000/api/img')
+const addThought = () => {
+    const newThought = addThoughtInput.value
+    axios.post('http://localhost:4000/api/thought', {newThought})
+    .then(res => {
+        alert(res.data)
+        addThoughtInput.value = ''
+    })
 }
-imgBtn.addEventListener('click', getImg);
 
+addThoughtBtn.addEventListener('click', addThought)
 
-const deleteImgBtn = document.getElementById('deleteImgBtn')
+const deleteBtn = document.getElementById('deleteThoughtBtn')
+const deleteInput = document.getElementById('deleteThoughtInput')
 
-const deleteImg = () => {
-    axios.delete('http://localhost:4000/api/img')
+const deleteThought =  () => {
+    axios.delete(`http://localhost:4000/api/thought/${deleteInput.value}`)
+    .then(res => {
+        alert(res.data)
+        deleteInput.value = ''
+    })
 }
-deleteImgBtn.addEventListener('click', deleteImg)
+
+deleteThoughtBtn.addEventListener('click', deleteThought)
+
+
+
+
+
+
+// const imgBtn = document.getElementById('imgBtn')
+// const img = document.querySelector('#img');
+
+// const getImg = () => {
+//     axios.put('http://localhost:4000/api/img')
+// }
+// imgBtn.addEventListener('click', getImg);
+
+
+// const deleteImgBtn = document.getElementById('deleteImgBtn')
+
+// const deleteImg = () => {
+//     axios.delete('http://localhost:4000/api/img')
+// }
+// deleteImgBtn.addEventListener('click', deleteImg);
+
+
 
 
 
