@@ -55,9 +55,12 @@ module.exports = {
     deleteThought: (req, res) => {
         const {id} = req.params
 
+        if (thoughts[+id]) {
         thought.splice(id,1)
-
-        res.stauts(200).send('Thought removed!')
+        } else {
+            res.stauts(200).send('Thought removed!')
+        }
+            res.status(400).send('No thought to remove!')
     },
 
 
